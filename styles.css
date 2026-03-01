@@ -117,8 +117,8 @@ body {
 
 .floating-logo {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     opacity: 0.15;
     pointer-events: none;
     z-index: 1;

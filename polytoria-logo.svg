@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <style>
+    .polytoria-blue { fill: #1E56FF; }
+    .polytoria-white { fill: #FFFFFF; }
+  </style>
+  <!-- Blue background -->
+  <rect width="200" height="200" class="polytoria-blue"/>
+  
+  <!-- White rotated square -->
+  <g transform="translate(100, 100)">
+    <polygon points="-60,-20 -20,-60 60,-20 20,60" class="polytoria-white"/>
+    
+    <!-- Blue square in center -->
+    <rect x="-15" y="-15" width="30" height="30" class="polytoria-blue"/>
+  </g>
+</svg>

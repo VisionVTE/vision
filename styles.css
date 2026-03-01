@@ -117,24 +117,22 @@ body {
 
 .floating-logo {
     position: absolute;
-    font-size: 3rem;
-    font-weight: bold;
+    width: 150px;
+    height: 150px;
     opacity: 0.15;
     pointer-events: none;
     z-index: 1;
 }
 
 .roblox-logo {
-    top: 20%;
-    left: 10%;
-    color: var(--highlight-color);
+    top: 15%;
+    left: 8%;
     animation: float 8s ease-in-out infinite;
 }
 
 .polytoria-logo {
-    bottom: 15%;
-    right: 12%;
-    color: var(--success-color);
+    bottom: 10%;
+    right: 10%;
     animation: float 10s ease-in-out infinite 1s;
 }
 

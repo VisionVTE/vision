@@ -10,7 +10,7 @@
   <script src="studio-auth.js"></script>
   <script>window.studioAuth.protect();</script>
 
-  <header style="padding:1rem 20px; background:var(--secondary-color); border-bottom:1px solid rgba(255,255,255,0.03);">
+  <header style="padding:1rem 20px; background:var(--secondary-color); border-bottom:1px solid var(--accent-color);">
     <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
       <div style="display:flex; align-items:center; gap:12px;">
         <img src="logo.png" alt="logo" style="width:44px; height:auto;">
@@ -32,7 +32,7 @@
         <p style="color:var(--light-text); margin-bottom:0.5rem;">Manage your passkey for passwordless sign-in.</p>
         <div id="passkey-status" style="margin-bottom:0.5rem;"></div>
         <button id="passkey-add" class="submit-button" style="margin-right:0.5rem;">Add Passkey</button>
-        <button id="passkey-remove" class="submit-button" style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--light-text);">Remove Passkey</button>
+        <button id="passkey-remove" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);">Remove Passkey</button>
       </div>
       <a class="game-card" href="studio-users.html" style="display:block; padding:1rem;">View All Users</a>
       <a class="game-card" href="#" style="display:block; padding:1rem;">Tool 1 (placeholder)</a>
@@ -52,10 +52,10 @@
         <p id="twofa-qr">QR code not supported.</p>
         <div><strong>Key:</strong> <span id="twofa-key" style="font-family:monospace"></span></div>
         <label style="margin-top:0.75rem; font-weight:600">Enter code from app</label>
-        <input id="twofa-code" type="text" maxlength="6" placeholder="123456" style="padding:0.6rem; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:var(--secondary-color); color:var(--text-color);">
+        <input id="twofa-code" type="text" maxlength="6" placeholder="123456" style="padding:0.6rem; border-radius:6px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color);">
         <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem;">
           <button id="twofa-verify" class="submit-button">Enable 2FA</button>
-          <button id="twofa-cancel" class="submit-button" style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--light-text);">Cancel</button>
+          <button id="twofa-cancel" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);">Cancel</button>
         </div>
         <div id="twofa-msg" style="margin-top:0.5rem; display:none; font-weight:600; color:var(--highlight-color);"></div>
       </div>
@@ -65,7 +65,7 @@
         <label style="display:flex; gap:0.5rem; align-items:center; margin-top:0.5rem;"><input id="twofa-agree" type="checkbox"> I agree my account won't be secure if I skip enabling 2FA.</label>
         <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem;">
           <button id="twofa-enable-start" class="submit-button">Set up 2FA</button>
-          <button id="twofa-skip" class="submit-button" style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--light-text);" disabled>Skip for today</button>
+          <button id="twofa-skip" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);" disabled>Skip for today</button>
         </div>
       </div>
     </div>

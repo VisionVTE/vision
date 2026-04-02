@@ -12,12 +12,12 @@
     <p>This area is restricted to development staff and studio helpers. Enter your username and password to continue. New usernames will be created automatically.</p>
     <form id="login-form" style="margin-top:1rem; display:flex; flex-direction:column; gap:0.75rem;">
       <label style="font-weight:600">Username</label>
-      <input id="username" type="text" placeholder="username" required style="padding:0.8rem; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:var(--secondary-color); color:var(--text-color);">
+      <input id="username" type="text" placeholder="username" required style="padding:0.8rem; border-radius:6px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color);">
       <label style="font-weight:600">Password</label>
-      <input id="password" type="password" placeholder="Studio password" required style="padding:0.8rem; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:var(--secondary-color); color:var(--text-color);">
+      <input id="password" type="password" placeholder="Studio password" required style="padding:0.8rem; border-radius:6px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color);">
       <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.5rem;">
         <button type="submit" class="submit-button">Sign in</button>
-        <a href="index.html" class="submit-button" style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--light-text);">Cancel</a>
+        <a href="index.html" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);">Cancel</a>
       </div>
       <div id="login-msg" style="color:var(--highlight-color); font-weight:600; margin-top:0.5rem; display:none;"></div>
     </form>
@@ -31,7 +31,7 @@
       <p style="color:var(--light-text);">Would you like to add a passkey (e.g., Windows/Mac platform authenticator) to this account? This enables passwordless sign-in on this device.</p>
       <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem;">
         <button id="passkey-yes" class="submit-button">Yes, add passkey</button>
-        <button id="passkey-no" class="submit-button" style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--light-text);">No, later</button>
+        <button id="passkey-no" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);">No, later</button>
       </div>
       <div id="passkey-msg" style="margin-top:0.5rem; color:var(--highlight-color); display:none;"></div>
     </div>
@@ -41,10 +41,10 @@
     <div style="position:relative; margin:auto; max-width:520px; background:var(--secondary-color); padding:1.25rem; border-radius:8px; z-index:4001; color:var(--text-color);">
       <h3 style="margin-top:0;">Enter 2FA Code</h3>
       <p style="color:var(--light-text);">Enter the 6-digit code from your authenticator app.</p>
-      <input id="twofa-login-code" type="text" maxlength="6" placeholder="123456" style="padding:0.8rem; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:var(--secondary-color); color:var(--text-color); width:100%; margin:0.5rem 0;">
+      <input id="twofa-login-code" type="text" maxlength="6" placeholder="123456" style="padding:0.8rem; border-radius:6px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color); width:100%; margin:0.5rem 0;">
       <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem;">
         <button id="twofa-login-verify" class="submit-button">Verify</button>
-        <button id="twofa-login-cancel" class="submit-button" style="background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--light-text);">Cancel</button>
+        <button id="twofa-login-cancel" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);">Cancel</button>
       </div>
       <div id="twofa-login-msg" style="margin-top:0.5rem; color:var(--highlight-color); display:none;"></div>
     </div>

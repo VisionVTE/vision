@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Studio Users — VisionVT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script src="studio-auth.js"></script>
+  <script>window.studioAuth.protect();</script>
+
+  <header style="padding:1rem 20px; background:var(--secondary-color); border-bottom:1px solid rgba(255,255,255,0.03);">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="logo.png" alt="logo" style="width:44px; height:auto;">
+        <strong>Studio Users</strong>
+      </div>
+      <div>
+        <button onclick="window.studioAuth.logout()" class="submit-button">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding:2rem 20px;">
+    <h2>All Studio Users</h2>
+    <p style="color:var(--light-text);">List of all registered users (passwords are hashed and not displayed).</p>
+
+    <div id="users-list" style="margin-top:1rem;"></div>
+  </main>
+  <script>
+    const usersList = document.getElementById('users-list');
+    const users = JSON.parse(localStorage.getItem('studio_users') || '{}');
+    const list = Object.keys(users).map(username => {
+      const user = users[username];
+      const hasPasskey = user.passkey ? 'Yes' : 'No';
+      return `<div class="game-card" style="padding:1rem; margin-bottom:0.5rem;">
+        <strong>${username}</strong><br>
+        Has Passkey: ${hasPasskey}<br>
+        Password: Hashed (not displayed)
+      </div>`;
+    }).join('');
+    usersList.innerHTML = list || '<p>No users registered.</p>';
+  </script>
+</body>
+</html>

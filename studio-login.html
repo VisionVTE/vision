@@ -46,6 +46,9 @@
     const passkeyNo = document.getElementById('passkey-no');
     const passkeyMsg = document.getElementById('passkey-msg');
 
+    // Initialize default user
+    window.studioAuth.initDefaultUser();
+
     form.addEventListener('submit', async (ev) => {
       ev.preventDefault();
       msg.style.display = 'none';
@@ -61,7 +64,13 @@
           location.href = 'studio-dashboard.html';
         }
       } else {
-        msg.textContent = 'Incorrect username or password';
+        if (res.reason === 'password') {
+          msg.textContent = 'Incorrect password';
+        } else if (res.reason === 'username') {
+          msg.textContent = 'Username not found';
+        } else {
+          msg.textContent = 'Login failed';
+        }
         msg.style.display = 'block';
       }
     });

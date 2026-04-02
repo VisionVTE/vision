@@ -61,11 +61,7 @@ async function createUser(username, password){
 async function loginUser(username, password){
   const users = _loadUsers();
   if (!users[username]){
-    // Create new user automatically
-    await createUser(username, password);
-    localStorage.setItem(STORAGE_KEY, TOKEN_VALUE);
-    localStorage.setItem('studio_user', username);
-    return { ok:true, created:true };
+    return { ok:false, reason:'username' };
   }
   const record = users[username];
   const salt = _fromB64(record.salt);
@@ -75,10 +71,18 @@ async function loginUser(username, password){
     localStorage.setItem('studio_user', username);
     return { ok:true, created:false };
   }
-  return { ok:false };
+  return { ok:false, reason:'password' };
 }
 
 function currentUser(){ return localStorage.getItem('studio_user') || null; }
+
+// --- Initialize default user ---
+async function initDefaultUser(){
+  const users = _loadUsers();
+  if (!Object.keys(users).length){
+    await createUser('VisionVT', 'Creativity9918EE');
+  }
+}
 
 // --- Passkey (WebAuthn) registration helpers (client-only, stores id in users map) ---
 function _u8ToB64(u8){ return btoa(String.fromCharCode(...u8)); }
@@ -115,7 +119,8 @@ window.studioAuth = Object.assign(window.studioAuth, {
   loginUser,
   currentUser,
   registerPasskeyForUser,
-  isPasskeyRegistered
+  isPasskeyRegistered,
+  initDefaultUser
 });
 
 function logout() {

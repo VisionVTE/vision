@@ -1,4 +1,6 @@
 // studio-auth.js
+console.log('studio-auth.js loaded');
+console.log('crypto available:', !!window.crypto && !!window.crypto.subtle);
 // Simple client-side protection for a local "devs only" area.
 // WARNING: This is NOT secure for production. It's a basic convenience gate for local/dev use.
 // To set your password: compute the SHA-256 hex of your password and replace STORED_HASH below.

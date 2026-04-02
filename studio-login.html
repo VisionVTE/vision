@@ -46,16 +46,12 @@
     const passkeyNo = document.getElementById('passkey-no');
     const passkeyMsg = document.getElementById('passkey-msg');
 
-    // Initialize default user
-    window.studioAuth.initDefaultUser();
-
-    if (!window.studioAuth) {
-      alert('Authentication system failed to load. Please refresh the page or use a different browser.');
-      return;
-    }
-
     form.addEventListener('submit', async (ev) => {
       ev.preventDefault();
+      if (!window.studioAuth) {
+        alert('Authentication system failed to load. Please refresh the page.');
+        return;
+      }
       msg.style.display = 'none';
       const username = uname.value.trim();
       const password = pwd.value;
@@ -85,6 +81,11 @@
         msg.style.display = 'block';
       }
     });
+
+    // Initialize default user
+    if (window.studioAuth) {
+      window.studioAuth.initDefaultUser();
+    }
 
     passkeyNo.addEventListener('click', () => {
       passkeyModal.style.display = 'none';

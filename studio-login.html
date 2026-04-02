@@ -49,6 +49,11 @@
     // Initialize default user
     window.studioAuth.initDefaultUser();
 
+    if (!window.studioAuth) {
+      alert('Authentication system failed to load. Please refresh the page or use a different browser.');
+      return;
+    }
+
     form.addEventListener('submit', async (ev) => {
       ev.preventDefault();
       msg.style.display = 'none';

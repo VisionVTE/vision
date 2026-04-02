@@ -56,7 +56,7 @@
 
       <div id="twofa-setup" style="display:none;">
         <p>Scan this QR with your authenticator app, or enter the key manually.</p>
-        <div id="twofa-qr" style="width:200px; height:200px; display:block; margin:0.5rem 0;"></div>
+        <div id="twofa-qr" style="width:200px; height:200px; display:block; margin:0.5rem 0; border:1px solid #ccc; padding:0.5rem; background:#f9f9f9;">QR not available. Use manual key below.</div>
         <div><strong>Key:</strong> <span id="twofa-key" style="font-family:monospace"></span></div>
         <label style="margin-top:0.75rem; font-weight:600">Enter code from app</label>
         <input id="twofa-code" type="text" maxlength="6" placeholder="123456" style="padding:0.6rem; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:var(--secondary-color); color:var(--text-color);">
@@ -105,21 +105,9 @@
       });
 
       startBtn.addEventListener('click', async () => {
-        // begin setup: generate secret and show QR + key
+        // begin setup: generate secret and show key
         const secret = window.studioAuth.generateSecretBase32();
         keyEl.textContent = secret;
-        // build otpauth URL
-        const issuer = encodeURIComponent('VisionVT');
-        const account = encodeURIComponent('studio');
-        const otpauth = `otpauth://totp/${issuer}:${account}?secret=${secret}&issuer=${issuer}&algorithm=SHA1&digits=6&period=30`;
-        // render QR locally using embedded library
-        const canvas = document.createElement('canvas');
-        QRCode.toCanvas(canvas, otpauth, { width: 200, height: 200 }).then(() => {
-          qrContainer.appendChild(canvas);
-        }).catch(err => {
-          console.error('QR generation failed:', err);
-          qrContainer.textContent = 'QR generation failed. Use manual key.';
-        });
         prompt.style.display = 'none';
         setup.style.display = 'block';
         msg.style.display = 'none';
@@ -138,7 +126,9 @@
           sessionStorage.removeItem('studio_2fa_temp_secret');
           window.studioAuth.mark2FAPromptShownToday();
           hideModal();
-          alert('2FA enabled for your account.');
+          // generate backup codes
+          const codes = window.studioAuth.generateBackupCodes();
+          alert('2FA enabled for your account. Backup codes generated.');
         } else {
           msg.textContent = 'Code incorrect — try again';
           msg.style.display = 'block';

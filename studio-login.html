@@ -12,9 +12,9 @@
     <p>This area is restricted to development staff and studio helpers. Enter your username and password to continue. New usernames will be created automatically.</p>
     <form id="login-form" style="margin-top:1rem; display:flex; flex-direction:column; gap:0.75rem;">
       <label style="font-weight:600">Username</label>
-      <input id="username" type="text" placeholder="username" required style="padding:0.8rem; border-radius:6px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color);">
+      <input id="username" type="text" placeholder="username" required style="padding:0.8rem; border-radius:8px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color);">
       <label style="font-weight:600">Password</label>
-      <input id="password" type="password" placeholder="Studio password" required style="padding:0.8rem; border-radius:6px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color);">
+      <input id="password" type="password" placeholder="Studio password" required style="padding:0.8rem; border-radius:8px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color);">
       <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.5rem;">
         <button type="submit" class="submit-button">Sign in</button>
         <a href="index.html" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);">Cancel</a>
@@ -26,7 +26,7 @@
   <script src="studio-auth.js"></script>
   <div id="passkey-modal" style="display:none; position:fixed; inset:0; align-items:center; justify-content:center; z-index:4000;">
     <div style="position:absolute; inset:0; background:rgba(0,0,0,0.6);"></div>
-    <div style="position:relative; margin:auto; max-width:520px; background:var(--secondary-color); padding:1.25rem; border-radius:8px; z-index:4001; color:var(--text-color);">
+      <div style="position:relative; margin:auto; max-width:520px; background:var(--secondary-color); padding:1.25rem; border-radius:16px; z-index:4001; color:var(--text-color);">
       <h3 style="margin-top:0;">Add a passkey?</h3>
       <p style="color:var(--light-text);">Would you like to add a passkey (e.g., Windows/Mac platform authenticator) to this account? This enables passwordless sign-in on this device.</p>
       <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem;">
@@ -38,10 +38,10 @@
   </div>
   <div id="twofa-login-modal" style="display:none; position:fixed; inset:0; align-items:center; justify-content:center; z-index:4000;">
     <div style="position:absolute; inset:0; background:rgba(0,0,0,0.6);"></div>
-    <div style="position:relative; margin:auto; max-width:520px; background:var(--secondary-color); padding:1.25rem; border-radius:8px; z-index:4001; color:var(--text-color);">
+    <div style="position:relative; margin:auto; max-width:520px; background:var(--secondary-color); padding:1.25rem; border-radius:16px; z-index:4001; color:var(--text-color);">
       <h3 style="margin-top:0;">Enter 2FA Code</h3>
       <p style="color:var(--light-text);">Enter the 6-digit code from your authenticator app.</p>
-      <input id="twofa-login-code" type="text" maxlength="6" placeholder="123456" style="padding:0.8rem; border-radius:6px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color); width:100%; margin:0.5rem 0;">
+      <input id="twofa-login-code" type="text" maxlength="6" placeholder="123456" style="padding:0.8rem; border-radius:8px; border:1px solid var(--accent-color); background:var(--secondary-color); color:var(--text-color); width:100%; margin:0.5rem 0;">
       <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem;">
         <button id="twofa-login-verify" class="submit-button">Verify</button>
         <button id="twofa-login-cancel" class="submit-button" style="background:transparent; border:1px solid var(--accent-color); color:var(--text-color);">Cancel</button>

@@ -54,16 +54,22 @@
       msg.style.display = 'none';
       const username = uname.value.trim();
       const password = pwd.value;
+      console.log('Attempting login for:', username);
       if (!username) { msg.textContent = 'Enter a username'; msg.style.display='block'; return; }
       const res = await window.studioAuth.loginUser(username, password);
+      console.log('Login result:', res);
       if (res.ok) {
+        console.log('Login successful, checking passkey');
         // after login, ask about passkey (unless already registered)
         if (!window.studioAuth.isPasskeyRegistered(username) && window.PublicKeyCredential) {
+          console.log('Showing passkey modal');
           passkeyModal.style.display = 'flex';
         } else {
+          console.log('Redirecting to dashboard');
           location.href = 'studio-dashboard.html';
         }
       } else {
+        console.log('Login failed:', res.reason);
         if (res.reason === 'password') {
           msg.textContent = 'Incorrect password';
         } else if (res.reason === 'username') {

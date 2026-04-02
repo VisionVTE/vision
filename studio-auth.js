@@ -79,8 +79,11 @@ function currentUser(){ return localStorage.getItem('studio_user') || null; }
 // --- Initialize default user ---
 async function initDefaultUser(){
   const users = _loadUsers();
+  console.log('Current users:', Object.keys(users));
   if (!Object.keys(users).length){
+    console.log('Creating default user VisionVT');
     await createUser('VisionVT', 'Creativity9918EE');
+    console.log('Default user created');
   }
 }
 

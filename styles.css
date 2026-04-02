@@ -71,18 +71,20 @@ body {
     align-items: center;
     gap: 12px;
 }
+
 .site-logo {
-    width: 48px;
+    width: 64px;
     height: auto;
     display: block;
 }
 
 /* Large logo on homepage */
+
 .hero-logo {
-    width: 220px;
-    max-width: 60%;
+    width: 300px;
+    max-width: 80%;
     height: auto;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.5rem;
     display: block;
 }
 

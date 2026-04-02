@@ -78,7 +78,7 @@
     </div>
   </div>
 
-  <script src="qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script>
     // 2FA modal logic
     (function(){
@@ -113,8 +113,13 @@
         const account = encodeURIComponent('studio');
         const otpauth = `otpauth://totp/${issuer}:${account}?secret=${secret}&issuer=${issuer}&algorithm=SHA1&digits=6&period=30`;
         // render QR locally using embedded library
-        qrContainer.innerHTML = '';
-        new QRCode(qrContainer, {text: otpauth, width:200, height:200});
+        const canvas = document.createElement('canvas');
+        QRCode.toCanvas(canvas, otpauth, { width: 200, height: 200 }).then(() => {
+          qrContainer.appendChild(canvas);
+        }).catch(err => {
+          console.error('QR generation failed:', err);
+          qrContainer.textContent = 'QR generation failed. Use manual key.';
+        });
         prompt.style.display = 'none';
         setup.style.display = 'block';
         msg.style.display = 'none';
